@@ -237,10 +237,6 @@ $ sudo mkdir /run/media/formatcom/7425d74e-aaef-436a-914d-300c79eb6927/boot
 # Set up a couple of getty's
 tty1::respawn:/sbin/getty 38400 tty1
 tty2::respawn:/sbin/getty 38400 tty2
-tty3::respawn:/sbin/getty 38400 tty3
-tty4::respawn:/sbin/getty 38400 tty4
-tty5::respawn:/sbin/getty 38400 tty5
-tty6::respawn:/sbin/getty 38400 tty6
 
 # Put a getty on the serial port
 ttyS0::respawn:/sbin/getty -L 115200 ttyS0 vt100
@@ -258,15 +254,6 @@ ttyS0::respawn:/sbin/getty -L 115200 ttyS0 vt100
 console
 tty1
 tty2
-tty3
-tty4
-tty5
-tty6
-tty7
-tty8
-tty9
-tty10
-tty11
 ttyS0
 
 ~~~
