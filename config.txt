@@ -3,7 +3,8 @@ start_file=start4.elf
 fixup_file=fixup4.dat
 device_tree=broadcom/bcm2711-rpi-4-b.dtb
 overlay_prefix=overlays/
-dtoverlay=vc4-kms-v3d
-max_framebuffers=2
+# REF: https://wiki.gentoo.org/wiki/Raspberry_Pi_VC4
+dtoverlay=vc4-fkms-v3d
+max_framebuffers=1
 enable_uart=1
 arm_64bit=1
