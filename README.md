@@ -144,7 +144,6 @@ $ curl -LO ${ALPINECDN}/main/aarch64/wpa_supplicant-2.9-r5.apk
 $ curl -LO ${ALPINECDN}/main/aarch64/libnl3-3.5.0-r0.apk
 $ curl -LO ${ALPINECDN}/main/aarch64/pcsc-lite-libs-1.8.25-r2.apk
 
-
 ~~~
 
 ~~~
@@ -184,7 +183,7 @@ $ cd /run/media/formatcom/7425d74e-aaef-436a-914d-300c79eb6927
 
 --- AGREGAR SERVICIOS AL INICIO
 
-$ sudo ln -s /etc/init.d/{modules,sysctl,hostname,bootmisc,syslog} etc/runlevels/boot/
+$ sudo ln -s /etc/init.d/{modules,sysctl,hostname,bootmisc,syslog,swclock} etc/runlevels/boot/
 $ sudo ln -s /etc/init.d/{devfs,dmesg,hwdrivers} etc/runlevels/sysinit/
 $ sudo ln -s /etc/init.d/{mount-ro,killprocs,savecache} etc/runlevels/shutdown/
 $ sudo ln -s /etc/init.d/dbus etc/runlevels/default/
@@ -349,19 +348,34 @@ $ sudo screen /dev/ttyUSB0 115200
 --- WIFI
 --- REF: https://wiki.alpinelinux.org/wiki/Connecting_to_a_wireless_access_point
 
-$ ip link set wlan0 up
-$ iwlist wlan0 scanning | tee /tmp/wifi.info
-$ iwconfig wlan0 essid vodafone2088_5G
-$ iwconfig wlan0
+# ip link set wlan0 up
+# iwlist wlan0 scanning | tee /tmp/wifi.info
+# iwconfig wlan0 essid vodafone2088_5G
+# iwconfig wlan0
 
-$ wpa_passphrase 'vodafone2088_5G' 'ExamWifiPassw' > /etc/wpa_supplicant/wpa_supplicant.conf
-$ wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+# wpa_passphrase 'vodafone2088_5G' 'ExamWifiPassw' > /etc/wpa_supplicant/wpa_supplicant.conf
+# wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 
-$ udhcpc -i wlan0
-$ ip addr show wlan0
+# udhcpc -i wlan0
+# ip addr show wlan0
+
+--- REF: http://dl-cdn.alpinelinux.org/alpine/v3.11/main/aarch64/
+--- REF: https://www.raspberrypi.org/blog/vc4-and-v3d-opengl-drivers-for-raspberry-pi-an-update/
+--- VideoCore VI driver is V3D
+
+# apk add mesa-dri-v3d
+# apk add mesa-demos
+
+# apk add xorg-server
 
 ~~~
 
+~~~
+
+--- SDL2_gfx
+$ ./configure --build=arm --disable-dependency-tracking --disable-mmx
+
+~~~
 
 ~~~
 - SOLO ES UNA NOTA PARA MI, NO LO UTILIZARE PARA NADA
