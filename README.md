@@ -391,3 +391,8 @@ $ touch /etc/modules-load.d/uinput.conf
 $ modinfo uinput
 $ lsmod
 ~~~
+
+
+~~~
+$ ntpd -d -q -n -p uk.pool.ntp.org    # actualizar la fecha
+~~~
