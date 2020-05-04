@@ -174,6 +174,14 @@ $ cd /run/media/formatcom/7425d74e-aaef-436a-914d-300c79eb6927
 
 --- AQUI EXPLICAR WIFI Y BLUETOOTH
 
+REF: https://wiki.archlinux.org/index.php/bluetooth
+
+$ apk add bluez
+$ vi /etc/mdev.conf  # descomentar "rpi bluetooth" en /etc/mdev.conf
+$ vi /etc/bluetooth/main.conf # habilitar automaticamente por defecto es false ( AutoEnable=false/true )
+$ rc-update add bluetooth
+$ bluetoothctl power on  # encender manualmente si no esta AutoEnable
+
 --- CONFIGURAR EL WIFI PARA RPI4
 
 $ cd lib/firmware/brcm
@@ -375,3 +383,11 @@ $ zcat initramfs-rpi4 | cpio -ivd --no-absolute-filenames
 $ sudo fsck.vfat -v -a -w /dev/sda1
 ~~~
 
+
+~~~
+$ touch /etc/modules-load.d/uinput.conf
+# uinput
+
+$ modinfo uinput
+$ lsmod
+~~~
