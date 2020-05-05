@@ -22,6 +22,8 @@
 21.- REF: https://www.raspberrypi.org/documentation/configuration/led_blink_warnings.md
 22.- REF: https://wiki.archlinux.org/index.php/Fstab_(Espa%C3%B1ol)
 23.- REF: https://wiki.artixlinux.org/Main/OpenRC
+
+24.- REF: https://github.com/Hexxeh/rpi-firmware/tree/master/overlays
 ~~~
 
 ~~~
